@@ -31,6 +31,7 @@ function Read(props) {
 	    }
     )
     props.closeModal();
+    alert("게시물을 삭제했습니다.");
   }
 
   const UpdateContent = (e) => {
@@ -58,6 +59,7 @@ function Read(props) {
     setIsReadOnly(true);
     setUpdateDeleteButtonHidden(false);
     setConfirmCancelButtonHidden(true);
+    alert("게시물을 수정했습니다.");
   }
 
   const ChangeReadOnly = () => {
