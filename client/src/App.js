@@ -16,7 +16,7 @@ function App() {
     });
   }
 
-  useEffect(getData, []);
+  useEffect(getData, [listData]);
 
   return (
     <div className='App'>

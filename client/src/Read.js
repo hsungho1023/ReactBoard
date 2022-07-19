@@ -55,6 +55,9 @@ function Read(props) {
       }
     )
     props.closeModal();
+    setIsReadOnly(true);
+    setUpdateDeleteButtonHidden(false);
+    setConfirmCancelButtonHidden(true);
   }
 
   const ChangeReadOnly = () => {
