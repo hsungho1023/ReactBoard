@@ -7,8 +7,8 @@ import Axios from 'axios';
 
 function Read(props) {
   const [isReadOnly, setIsReadOnly] = useState(true);
-  const [UpdateTitleValue, setUpdateTitleValue] = useState(props.title);
-  const [UpdateContentValue, setUpdateContentValue] = useState(props.content);
+  const [UpdateTitleValue, setUpdateTitleValue] = useState();
+  const [UpdateContentValue, setUpdateContentValue] = useState();
   const [UpdateDeleteButtonHidden, setUpdateDeleteButtonHidden] = useState(false);
   const [ConfirmCancelButtonHidden, setConfirmCancelButtonHidden] = useState(true);
 
