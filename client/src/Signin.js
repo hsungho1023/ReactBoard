@@ -8,12 +8,12 @@ import { faUser, faKey } from '@fortawesome/free-solid-svg-icons';
 import Signup from './Signup';
 
 function ClickSignUpShow () {
-  const [SignupShow, setSignupShow] = React.useState(false);
+  const [signupShow, setSignupShow] = React.useState(false);
   const clickShow = () => setSignupShow(true);
   return (
     <div className="d-flex justify-content-center links">
           회원이 아니시라면&nbsp;<a href="#" onClick = {clickShow} className="ml-2">가입</a>해주세요.
-          <Signup show={SignupShow} onHide={() => setSignupShow(false)}/>
+          <Signup show={signupShow} onHide={() => setSignupShow(false)}/>
     </div>
   );
 }

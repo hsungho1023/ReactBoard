@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import Table from "react-bootstrap/Table";
 import Button from "react-bootstrap/Button";
 import Container from 'react-bootstrap/Container';
@@ -10,8 +10,8 @@ import Read from "./Read";
 import './css.css'
 
 function Board(props){
-    const [WriteShow, setWriteShow] = useState(false);
-    const [ReadShow, setReadShow] = useState(false);
+    const [writeShow, setWriteShow] = useState(false);
+    const [readShow, setReadShow] = useState(false);
     const [title, setTitle] = useState();
     const [content, setContent] = useState();
     const [boardid, setBoardid] = useState();
@@ -23,8 +23,8 @@ function Board(props){
 
     return(
         <>
-            <Write show={WriteShow} onHide={() => setWriteShow(false)} closeModal={closeModal}/>
-            <Read boardid={boardid} title={title} content={content} show={ReadShow} closeModal={closeModal} onHide={() => setReadShow(false)}/>
+            <Write show={writeShow} onHide={() => setWriteShow(false)} closeModal={closeModal}/>
+            <Read boardid={boardid} title={title} content={content} show={readShow} closeModal={closeModal} onHide={() => setReadShow(false)}/>
             <div className="py-5 bg-surface-secondary border border-bottom">
                 <Container>
                     <Card className="border">
@@ -48,7 +48,7 @@ function Board(props){
                             <tbody>
                                 {props.items.map (v => (
                                     <tr key={v.BOARD_ID} className="text-heading font-semibold">
-                                        <td>{v.BOARD_ID}</td>
+                                        <td>{v.ROWNUM}</td>
                                         <td>
                                             <a href = "#" className="disableLinkColor"
                                             onClick={() => {setReadShow(true); setBoardid(v.BOARD_ID); setTitle(v.BOARD_TITLE); setContent(v.BOARD_CONTENT);}}>{v.BOARD_TITLE}</a>

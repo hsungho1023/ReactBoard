@@ -4,10 +4,11 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import Board from './Board';
 import Axios from 'axios';
 import BoardTop from './BoardTop';
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 function App() { 
   const [listData, setListData] = useState([]);
-  
+
   const getData = () => {
     Axios.get("http://localhost:8000/list")
     .then((res) => {
@@ -20,11 +21,14 @@ function App() {
 
   return (
     <div className='App'>
+      <BrowserRouter>
         <BoardTop/>
-        <Board items={listData}/>
+        <Routes>
+          <Route path="/" element={<Board items={listData}/>}/>
+        </Routes>
+      </BrowserRouter>
     </div>
   );
 }
-
 
 export default App;

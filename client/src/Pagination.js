@@ -1,6 +1,7 @@
 import Pagination from 'react-bootstrap/Pagination';
 
-function Paging() {
+function Paging(props) {
+  
     return (
       <Pagination>
         <Pagination.First />

@@ -5,12 +5,13 @@ import Signin from "./Signin";
 import Signup from "./Signup";
 
 function BoardTop() {
-    const [SigninShow, setSigninShow] = React.useState(false);
-    const [SignupShow, setSignupShow] = React.useState(false);
+    const [signinShow, setSigninShow] = React.useState(false);
+    const [signupShow, setSignupShow] = React.useState(false);
+    
     return (
         <>
-            <Signin show={SigninShow} onHide={() => setSigninShow(false)}/>
-            <Signup show={SignupShow} onHide={() => setSignupShow(false)}/>
+            <Signin show={signinShow} onHide={() => setSigninShow(false)}/>
+            <Signup show={signupShow} onHide={() => setSignupShow(false)}/>
             <div className="py-5 p-50 bg-surface-primary">
                 <Container className="d-flex p-2">
                     <div className="h1 text-left text-black">

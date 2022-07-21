@@ -7,10 +7,10 @@ import Axios from 'axios';
 
 function Read(props) {
   const [isReadOnly, setIsReadOnly] = useState(true);
-  const [UpdateTitleValue, setUpdateTitleValue] = useState();
-  const [UpdateContentValue, setUpdateContentValue] = useState();
-  const [UpdateDeleteButtonHidden, setUpdateDeleteButtonHidden] = useState(false);
-  const [ConfirmCancelButtonHidden, setConfirmCancelButtonHidden] = useState(true);
+  const [updateTitleValue, setUpdateTitleValue] = useState();
+  const [updateContentValue, setUpdateContentValue] = useState();
+  const [updateDeleteButtonHidden, setUpdateDeleteButtonHidden] = useState(false);
+  const [confirmCancelButtonHidden, setConfirmCancelButtonHidden] = useState(true);
 
   useEffect(() => {
     setUpdateTitleValue(props.title);
@@ -44,8 +44,8 @@ function Read(props) {
 
   const Update = () => {
     Axios.put("http://localhost:8000/update", {
-        title : UpdateTitleValue,
-        content : UpdateContentValue,
+        title : updateTitleValue,
+        content : updateContentValue,
         boardid : props.boardid
       }
     ).then((res) => {
@@ -106,10 +106,10 @@ function Read(props) {
       </div>
       </Modal.Body>
       <Modal.Footer>
-        <Button onClick={ChangeReadOnly} title="수정" hidden={UpdateDeleteButtonHidden}>수정</Button>
-        <Button onClick={Delete} title="삭제" hidden={UpdateDeleteButtonHidden}>삭제</Button>
-        <Button onClick={Update} title="확인" hidden={ConfirmCancelButtonHidden}>확인</Button>
-        <Button onClick={Cancel} title="취소" hidden={ConfirmCancelButtonHidden}>취소</Button>
+        <Button onClick={ChangeReadOnly} title="수정" hidden={updateDeleteButtonHidden}>수정</Button>
+        <Button onClick={Delete} title="삭제" hidden={updateDeleteButtonHidden}>삭제</Button>
+        <Button onClick={Update} title="확인" hidden={confirmCancelButtonHidden}>확인</Button>
+        <Button onClick={Cancel} title="취소" hidden={confirmCancelButtonHidden}>취소</Button>
       </Modal.Footer>
     </Modal>
   );
